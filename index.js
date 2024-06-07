@@ -5,11 +5,13 @@ import cors from "cors"
 // files
 import connectDB from "./config/database.js"
 //routes
+import errorMiddleware from "./middlewares/errorMiddleware.js"
 import testRoutes from "./routes/testRoutes.js"
 import authRoutes from "./routes/authRoutes.js"
-import errorMiddleware from "./middlewares/errorMiddleware.js"
+import userRoutes from "./routes/userRoutes.js"
+import jobsRoutes from "./routes/jobsRoutes.js"
 
-// DOT ENV config
+// DOT ENV configW
 dotenv.config()
 
 // MongoDB Connection
@@ -26,6 +28,8 @@ app.use(cors())
 // routes
 app.use("/api/v1/test", testRoutes)
 app.use("/api/v1/auth", authRoutes)
+app.use("/api/v1/user", userRoutes)
+app.use("/api/v1/jobs", jobsRoutes)
 
 
 // validation middleware
